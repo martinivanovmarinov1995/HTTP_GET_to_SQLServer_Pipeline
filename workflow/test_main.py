@@ -1,11 +1,11 @@
 import pytest
 from unittest.mock import patch, Mock
-import main as job
+from workflow import main as job
 
 
 @pytest.fixture(scope="function")
 def conn():
-    with patch.object(job, 'conn') as conn_mock:
+    with patch.object(job, 'CONN') as conn_mock:
         yield conn_mock
 
 def test_main(conn):
